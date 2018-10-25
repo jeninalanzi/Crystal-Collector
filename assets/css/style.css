@@ -1,0 +1,85 @@
+body {
+    background: #000000 url("../images/wallpaper.jpg") no-repeat fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+#bg-purple {
+    background-color: rgba(128, 0, 128, 0.486);
+}
+
+#bg-scores {
+    background-color: #000000;
+}
+
+.card-body {
+    background-color: #000000;
+}
+
+#game-area {
+    background-color: #000000;
+    border: 1px solid #000000;
+    opacity: 0.75   ;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+button {
+    margin: auto 10px;
+}
+
+.row {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.game-title {
+    margin: 20px auto;
+    font-family: 'Julius Sans One', sans-serif;
+    color: #cfdef7;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.game-instructions {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+
+/* ID's for all Javascript DIVs go here. */
+
+#random-number {
+    color: #ffffff;
+    font-size: 50px;
+    text-decoration: bold;
+    font-family: 'Julius Sans One,' sans-serif;
+}
+
+
+
+/* =================== */
+
+
+/* Image CSS properties described below. */
+
+img {
+    opacity: 0.7;
+    filter: alpha(opacity=80);
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+#crystal-one, #crystal-two, #crystal-three, #crystal-four {
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+
+h1, h2, h3, h4, h5, p {
+    opacity: 1.0;
+}

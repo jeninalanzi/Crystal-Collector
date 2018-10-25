@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--All CSS/Styling goes here.-->
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>CRYSTAL COLLECTOR</title>
+</head>
+<body>
+
+<div class="container mt-5">
+
+   <div class="row">
+       <div class="col">
+            <p> </p>
+       </div>
+
+       <!--GAME INSTRUCTIONS DIV-->
+       <div class="col-md-6 col-lg- rounded mx-2" id="game-area">
+           <div class="container">
+                <div class="row game-title">
+                    <div class="col text-center">
+                        <h2><strong>Crystal Collector</strong></h2>
+                    </div>
+                </div>
+
+                <div class="row text-left">
+                        <h6>Instructions:</h6>
+
+                        <p>You will be given a <strong>random number</strong> at the end of the game.</p>
+
+                        <p>There are <strong>four</strong> crystals below. By clicking on a crystal, you will add a specific amount of points to your total score.</p>
+
+                        <p>You win the game by matching your <strong>total score</strong> to the <strong>random number</strong>. You lose the game if your total score <i>exceeds</i> the random number.</p>
+
+                        <p>The value of each crystal is hidden from you until you click on it.</p>
+
+                        <p>Each time when the game starts, the game will change the values of each crystal.</p>
+
+                        <p><strong>Good luck!</strong></p>
+                </div>
+               
+
+                <div class="row text-center">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-dark" id="start-game">Start Game</button>
+                        <button type="button" class="btn btn-dark" id="reset-game">Reset</button>
+                    </div>
+                </div>
+
+           </div>
+            
+       </div>
+
+       <!--GAME AREA DIV-->
+       <div class="col-md-4 col-lg-3 rounded mx-2" id="game-area">
+            
+            <div class="row">
+                <!--Crystal #1 goes here-->
+                    <div class="col box">
+                        <img id="crystal-one" value="1" src="assets/images/crystalone.png">
+                    </div>
+
+                <!--Crystal #2 goes here-->
+                    <div class="col box">
+                        <img id="crystal-two" value="2" src="assets/images/crystaltwo.png">
+                    </div>
+            </div>
+
+            <div class="row">
+                <!--Crystal #3 goes here-->
+                    <div class="col box">
+                        <img id="crystal-three" value="3" src="assets/images/crystalthree.png">
+                    </div>
+                
+                <!--Crystal #4 goes here-->
+                    <div class="col box">
+                        <img id="crystal-four" value="4" src="assets/images/crystalfour.png">
+                    </div>
+            </div>
+
+           
+            <div class="row" id="bg-purple">
+                <div class="col text-center">
+                    <h5><strong>Random Number</strong></h5>
+                </div>
+            </div>
+            
+            <div class="row" id="bg-white">
+                <div class="card-body text-center" id="random-number">
+                        <!--This is where the computerPickNum generates.-->    
+                </div>
+            </div>
+
+            <div class="row bg-dark">
+                <div class="col">
+                    <h5>Your Score</h5>
+                    <div class="card">
+                        <div class="card-body text-center" id="user-score">
+                            <!--Your userTotalScore score goes here-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Wins and Losses Subrow starts here.-->
+            <div class="row bg-dark">
+                    <!--WINS-->
+                    <div class="col">
+                            <h6>WINS:</h6>
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <!--WINS populate here-->
+                                </div>
+                            </div>
+                    </div>
+
+                    <!--LOSSES-->
+                    <div class="col">
+                            <h6>LOSSES:</h6>
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <!--Your compounding score goes here-->
+                                </div>
+                            </div>
+                    </div>
+            </div>
+          
+            
+
+
+
+       </div>
+
+
+       <div class="col">
+            <p> </p>
+       </div>
+   </div>
+
+
+</div>
+    
+<!--Links to the javascript libraries!-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="assets/javascript/game.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>
