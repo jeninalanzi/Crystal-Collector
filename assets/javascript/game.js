@@ -6,97 +6,97 @@ var crystalFour = Math.floor(Math.random()*12 +1);
 
 
 //--- Number and score variables ----------------------------
-var computerPickNum = Math.floor(Math.random()*120)+19;
-var userTotalScore;
+var computerPickNum = Math.floor(Math.random()*101)+19;
+var userTotalScore = 0;
+wins = 0;
+losses = 0;
 
 
-//--- crystalGame object with properties & values -----------
+//--- JQuery Functions --------------------------------------
 
-var crystalGame = {
-    wins: 0,
-    losses: 0,
+function initializeGame() {
+    $("#random-number").html(computerPickNum);
+};
 
-    resetGame: function() {
-        computerPickNum = Math.floor(Math.random()*120)+19;
-            console.log("randomNumber = " + computerPickNum);
-        crystalOne = Math.floor(Math.random()*12 +1);
-        crystalTwo = Math.floor(Math.random()*12 +1);
-        crystalThree = Math.floor(Math.random()*12 +1);
-        crystalFour = Math.floor(Math.random()*12 +1);
-        userTotalScore = 0;
 
-        $("#random-number").html(computerPickNum);
+function resetGame() {
+    $("#user-score").empty();
+    userTotalScore = 0;
+
+    // Resets computer-generated number:
+    computerPickNum = Math.floor(Math.random()*101)+19;
+
+    // Resets all crystal values:
+    crystalOne = Math.floor(Math.random()*12 +1);
+    crystalTwo = Math.floor(Math.random()*12 +1);
+    crystalThree = Math.floor(Math.random()*12 +1);
+    crystalFour = Math.floor(Math.random()*12 +1);    
+};
+
+
+function checkWinsOrLosses() {
+    if(userTotalScore === computerPickNum) {
+        wins++;
+        $("#wins-area").html(wins);
+        alert("CONGRATULATIONS! YOU'RE A WINNER!");
+        resetGame();
+    }
+    else if(userTotalScore > computerPickNum) {
+        $("#losses-area").html(losses);
+        losses++;
+        alert("SORRY, YOU LOST. BOOO. TRY AGAIN");
+        resetGame();
+    }
+};
+
+function playGame() {
+
+    //--- On-click event for #crystal-one:
+    $("#crystal-one").on("click", function() {
+        userTotalScore+= crystalOne;
         $("#user-score").html(userTotalScore);
+        checkWinsOrLosses();
+        console.log(crystalOne);
+    });
 
-        $("#reset-game").on("click", function() {
-            $("#random-number").empty();
-            $("#user-score").empty();
-        });
-    },
+    //--- On-click event for #crystal-two:
+    $("#crystal-two").on("click", function() {
+        userTotalScore+= crystalTwo;
+        $("#user-score").html(userTotalScore);
+        checkWinsOrLosses();
+        console.log(crystalTwo);
+    });
 
-    initializeGame: function() {
+    //--- On-click event for #crystal-three:
+    $("#crystal-three").on("click", function() {
+        userTotalScore+= crystalThree;
+        $("#user-score").html(userTotalScore);
+        checkWinsOrLosses();
+        console.log(crystalThree);
+    });
 
-            //---Same as reset values.
-            computerPickNum = Math.floor(Math.random()*120)+19;
-                console.log("randomNumber = " + computerPickNum);
-            crystalOne = Math.floor(Math.random()*12 +1);
-            crystalTwo = Math.floor(Math.random()*12 +1);
-            crystalThree = Math.floor(Math.random()*12 +1);
-            crystalFour = Math.floor(Math.random()*12 +1);
-            userTotalScore = 0;
-
-            $("#random-number").html(computerPickNum);
-            $("#user-score").html(userTotalScore);
-
-            //---Assign each crystal a random value:
-            $("#crystal-one").attr("value", crystalOne);
-                var test = $("#crystal-one").attr("value");
-                console.log("Crystal One Value: " + test);
-
-            $("#crystal-two").attr("value", crystalTwo);
-                var test = $("#crystal-two").attr("value");
-                console.log("Crystal Two Value: " + test);
-
-            $("#crystal-three").attr("value", crystalThree);
-                var test = $("#crystal-three").attr("value");
-                console.log("Crystal Three Value: " + test);
-            
-            $("#crystal-four").attr("value", crystalFour);
-                var test = $("#crystal-four").attr("value");
-                console.log("Crystal Four Value: " + test);
-
-            //---Adds value to the userTotalScore once crystals are clicked:
-            $(".box").on("click", function() {
-                var userScoreOutput = parseInt(userTotalScore) + parseInt(test);
-                    console.log("userTotalScore = " + userTotalScore);
-                    console.log("Crystal collected value = " + userScoreOutput);
-                    $("#user-score").html(userScoreOutput);
-
-            }); // *** PLEASE REVIEW W/TEACHER. NOT ADDING UP NUMBERS TOGETHER.
-    
-    },
-
-    
-        
-
-
+    //--- On-click event for #crystal-four:
+    $("#crystal-four").on("click", function() {
+        userTotalScore+= crystalFour;
+        $("#user-score").html(userTotalScore);
+        checkWinsOrLosses();
+        console.log(crystalFour);
+    });
 };
 
 
 
-// JQuery functions that work so far, not yet tied to any functional gameplay.
-// $("#start-game").click(function() {
-//     $("#random-number").text(computerPickNum);
-// });
-
-// $("#reset-game").click(function() {
-//     $("#random-number").empty();
-// });
+//--- JQuery functions that allow the click of buttons to
+//--- initialize & reset the game. ----------------------
 
 $("#start-game").on("click", function() {
-    crystalGame.initializeGame();
+    initializeGame();
+    playGame();
 });
 
 $("#reset-game").on("click", function() {
-    crystalGame.resetGame();
+    resetGame();
 });
+
+
+    
